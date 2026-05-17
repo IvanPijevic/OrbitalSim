@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="OrbitalSim.vcxproj" />
+  <Project Path="OrbitalSim.vcxproj" Id="872484f5-7b87-4385-a530-94f60623b8c5" />
 </Solution>
