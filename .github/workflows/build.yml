@@ -3,20 +3,6 @@ name: Build
 on: [push, pull_request]
 
 jobs:
-  build-linux:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y libsfml-dev cmake
-
-      - name: Configure
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
-
-      - name: Build
-        run: cmake --build build --config Release
-
   build-windows:
     runs-on: windows-latest
     steps:
@@ -27,6 +13,28 @@ jobs:
 
       - name: Configure
         run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+      - name: Build
+        run: cmake --build build --config Release
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake libfreetype-dev libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev
+
+      - name: Install vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git /opt/vcpkg
+          /opt/vcpkg/bootstrap-vcpkg.sh
+
+      - name: Install SFML via vcpkg
+        run: /opt/vcpkg/vcpkg install sfml:x64-linux
+
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
 
       - name: Build
         run: cmake --build build --config Release
