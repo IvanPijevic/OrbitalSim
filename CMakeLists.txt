@@ -9,4 +9,5 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
 add_executable(OrbitalSim src/main.cpp)
 
+target_include_directories(OrbitalSim PRIVATE include)
 target_link_libraries(OrbitalSim sfml-graphics sfml-window sfml-system)
