@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
-find_package(SFML 3 COMPONENTS graphics window system REQUIRED)
+find_package(SFML 3 COMPONENTS Graphics Window System REQUIRED)
 
 add_executable(OrbitalSim src/main.cpp)
 
