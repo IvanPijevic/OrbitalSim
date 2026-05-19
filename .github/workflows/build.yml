@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install SFML via vcpkg
-        run: vcpkg install sfml:x64-windows --head
+        run: vcpkg install sfml:x64-windows
       - name: Configure
         run: cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
       - name: Build
