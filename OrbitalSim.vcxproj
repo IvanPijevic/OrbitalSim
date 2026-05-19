@@ -19,7 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Body.cpp" />
+    <ClCompile Include="src\Draw.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Simulation.cpp" />
+    <ClCompile Include="src\UI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Body.h" />
+    <ClInclude Include="include\Draw.h" />
+    <ClInclude Include="include\Simulation.h" />
+    <ClInclude Include="include\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
